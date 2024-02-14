@@ -1,0 +1,47 @@
+body {
+    font-family: monospace;
+}
+
+.header {
+    text-align: center;
+}
+
+form {
+    display: block;
+    max-width: 500px;
+    background-color: lightslategrey;
+    margin: 0 auto;
+    padding: 15px;
+    overflow: hidden;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 2px #777;
+}
+
+label {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 200;
+}
+
+input {
+    height: 2rem;
+}
+
+input[type="text"] {
+    width: 95%;
+    margin: 5px 0 8px 0;
+    font-size: 1rem;
+}
+
+textarea {
+    margin: 5px 0 8px 0;
+    font-size: 1rem;
+    width: 95%;
+}
+
+.submit {
+    width: 100px;
+    background-color: rgb(38, 161, 38);
+    border: 0;
+}

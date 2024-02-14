@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create project</title>
+    <link rel="stylesheet" href="../static/create.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Create a new project</h1>
+    </div>
+    <form action="{{ url_for('views.create_project') }}" method="POST" enctype="multipart/form-data">
+        <label for="name">Project name:</label>
+        <input type="text" id="name" placeholder="Enter name" required>
+        <label for="description">Description:</label>
+        <textarea type="text" id="description" placeholder="Description..."  rows="3" cols="46" required></textarea>
+        <label for="date">Enter Date:</label>
+        <input type="text" id="date" placeholder="Enter date" required>
+        <input type="file" name="img" required>
+        <br>
+        <input type="submit" class="submit" value="Add">
+    </form>
+</body>
+</html>

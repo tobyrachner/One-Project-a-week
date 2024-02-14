@@ -11,10 +11,11 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    top: 0px;
+    margin: 0 20px 0 20px;
     height: 80px;
     background-color: hsl(0, 0%, 90%);
     border: 2px solid hsl(0, 0%, 70%);
+    border-radius: 5px;
 }
 
 .container {
