@@ -9,5 +9,7 @@ class User(db.Model, UserMixin):
 class Project(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, unique=True)
+    lower_name = db.Column(db.String, unique=True)
     description = db.Column(db.String)
+    path = db.Column(db.String)
     date = db.Column(db.String)

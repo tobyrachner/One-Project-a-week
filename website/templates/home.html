@@ -11,30 +11,16 @@
         <h1>One Project a Week</h1>
     </div>
     <div class="container">
-        <a href="https://www.google.com" >
+        {% for project in projects %}
+        <a href="{{ url_for('views.view_project', name=project.lower_name) }}" >
             <div class="project">
-                <img class="thumbnail" src="https://images.squarespace-cdn.com/content/v1/5bfc8dbab40b9d7dd9054f41/1546930028062-GT3D69YP0P0PNKLOV1KL/flow-of-pi-cristian.png?format=1500w" alt="img of cool circle">
-                <h2 class="name">Circle Simulation</h2>
-                <p class="description">This is a very cool thing drawing circles or something like that.</p>
-                <p class="date">02/13/2024</p>
+                <img class="thumbnail" src="{{ project.path }}" alt="img">
+                <h2 class="name">{{ project.name }}</h2>
+                <p class="description">{{ project.description }}</p>
+                <p class="date">{{ project.id|string + ' - ' + project.date }}</p>
             </div>
         </a>
-        <a href="https://www.google.com" >
-            <div class="project">
-                <img class="thumbnail" src="https://images.squarespace-cdn.com/content/v1/5bfc8dbab40b9d7dd9054f41/1546930028062-GT3D69YP0P0PNKLOV1KL/flow-of-pi-cristian.png?format=1500w" alt="img of cool circle">
-                <h2 class="name">Circle Simulation</h2>
-                <p class="description">This is a very cool thing drawing circles or something like that.</p>
-                <p class="date">02/13/2024</p>
-            </div>
-        </a>
-        <a href="https://www.google.com" >
-            <div class="project">
-                <img class="thumbnail" src="https://images.squarespace-cdn.com/content/v1/5bfc8dbab40b9d7dd9054f41/1546930028062-GT3D69YP0P0PNKLOV1KL/flow-of-pi-cristian.png?format=1500w" alt="img of cool circle">
-                <h2 class="name">Circle Simulation</h2>
-                <p class="description">This is a very cool thing drawing circles or something like that.</p>
-                <p class="date">02/13/2024</p>
-            </div>
-        </a>
+        {% endfor %}
     </div>
 </body>
 </html>
