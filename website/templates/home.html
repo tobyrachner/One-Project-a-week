@@ -10,9 +10,9 @@
     <div class="header">
         <h1>One Project a Week</h1>
     </div>
-    <div class="container">
+    <div class="container" id="container">
         {% for project in projects %}
-        <a href="{{ url_for('views.view_project', name=project.lower_name) }}" >
+        <a href="{{ url_for('views.view_project', name=project.lower_name) }}" data-tags="{{ project.tags }}">
             <div class="project">
                 <img class="thumbnail" src="{{ project.path }}" alt="img">
                 <h2 class="name">{{ project.name }}</h2>
@@ -22,5 +22,7 @@
         </a>
         {% endfor %}
     </div>
+
+    <script src="../static/home.js"></script>
 </body>
 </html>

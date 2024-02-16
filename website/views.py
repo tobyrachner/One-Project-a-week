@@ -1,7 +1,7 @@
 import os, sys
 from flask import Blueprint, render_template, request, send_from_directory, redirect, url_for, current_app
 from werkzeug.utils import secure_filename
-from .models import Project
+from .models import Project, Tag
 from . import db
 
 
@@ -21,17 +21,25 @@ def create_project():
         lower_name = name.lower().replace(' ', '_')
         description = request.form.get('description')
         date = request.form.get('date')
+        tags = request.form.get('tags')
         file = request.files['img']
         
         filename = secure_filename(file.filename)
         file_type = filename.split('.')[-1]
         path = '../static/images/' + lower_name + '.' + file_type
         file.save(current_app.config['UPLOAD_FOLDER'] + lower_name + '.' + file_type)
-
         
-        new_project = Project(name=name, lower_name=lower_name, description=description, path=path, date=date)
+        for tag in tags.split(', '):
+            if tag == '':
+                continue
+            check = Tag.query.filter_by(name=tag).first()
+            if not check:
+                db.session.add(Tag(name=tag))
+
+        new_project = Project(name=name, lower_name=lower_name, description=description, tags=tags, path=path, date=date)
         db.session.add(new_project)
         db.session.commit()
+        print(Tag.query.all())
         return redirect(url_for('views.view_project', name=lower_name))
 
     return render_template('create.html')
@@ -42,4 +50,4 @@ def view_project(name):
     if not project:
         return '<p>Project not Found</p>'
 
-    return name
+    return render_template('project.html', project=project)

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ project.name }}</title>
+    <link rel="stylesheet" href="../static/project.css">
+</head>
+<body>
+    <a href="{{ url_for('views.home') }}">
+        <img class="back" src="../static/images/arrow.png" alt="">
+    </a>
+    <div class="project">
+        <img class="thumbnail" src="{{ project.path }}" alt="project image">
+        <div class="info">
+            <h1>{{ project.name }}</h1>
+            <p>{{ project.description }}</p>
+            <p class="date">{{ project.date }}</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -11,5 +11,10 @@ class Project(db.Model):
     name = db.Column(db.String, unique=True)
     lower_name = db.Column(db.String, unique=True)
     description = db.Column(db.String)
+    tags = db.Column(db.String)
     path = db.Column(db.String)
     date = db.Column(db.String)
+
+class Tag(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String, unique=True)
