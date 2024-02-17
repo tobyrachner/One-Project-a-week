@@ -12,7 +12,12 @@ views = Blueprint('views', __name__)
 @views.route('/')
 def home():
     projects = Project.query.all()
-    return render_template('home.html', projects=projects)
+    query = Tag.query.all()
+    tags = ''
+    for tag in query:
+        tags += tag.name + ', '
+    tags = tags[:-3]
+    return render_template('home.html', projects=projects, tags=tags)
 
 @views.route('/create', methods=['GET', 'POST'])
 def create_project():

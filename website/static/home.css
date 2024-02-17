@@ -23,14 +23,62 @@ a {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1rem;
     align-items: flex-start;
-    margin: 20px
+    margin: 20px;
+    margin-top: 10px;
+}
+
+.filter-div {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    margin: 30px 0 0 20px;
+}
+
+#filter {
+    padding: 0;
+    border: none;
+    background: none;
+    width: 100px;
+    height: 40px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-right: 10px;
+    cursor: pointer;
+    background-color: hsl(217, 87%, 55%);
+}
+#filter:hover {
+    background-color: hsl(217, 87%, 60%);
+}
+#filter:active {
+    background-color: hsl(217, 87%, 65%);
+}
+
+#filter-button {
+    width: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
+.filter-tag {
+    border: none;
+    font-size: 1rem;
+    background-color: hsl(0, 0%, 80%);
+    border-radius: 20px;
+    padding: 5px 8px;
+    margin: 0 3px;
+    cursor: pointer;
+}
+.filter-tag:hover {
+    background-color: hsl(0, 0%, 85%);
+}
+.filter-tag:active {
+    background-color: hsl(0, 0%, 90%);
 }
 
 .project {
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .2);
     overflow: hidden;
     border-radius: 5px;
-    transition: 200ms transform ease-in-out;
+    transition: 150ms transform ease-in-out;
 }
 
 .project:hover {
@@ -51,7 +99,20 @@ a {
 .name {
     text-align: center;
     font-size: 2rem;
-    margin: 16px 0;
+    margin: 16px 0 0 0;
+}
+
+.tags {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.tag {
+    background-color: hsl(0, 0%, 80%);
+    border-radius: 20px;
+    padding: 5px 8px;
+    margin: 0 3px;
 }
 
 .description {

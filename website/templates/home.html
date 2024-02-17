@@ -10,12 +10,20 @@
     <div class="header">
         <h1>One Project a Week</h1>
     </div>
-    <div class="container" id="container">
+    <div class="filter-div" id="filter-div" data-tags="{{ tags }}">
+        <button id="filter" onclick="toggleFilters(this.parentElement)" data-isToggled='f'><img id="filter-button" src="../static/images/filter_button1.png" alt="Filter"></button>
+    </div>
+        <div class="container" id="container">
         {% for project in projects %}
-        <a href="{{ url_for('views.view_project', name=project.lower_name) }}" data-tags="{{ project.tags }}">
+        <a href="{{ url_for('views.view_project', name=project.lower_name) }}" data-tags="{{ project.tags.split(', ') }}">
             <div class="project">
                 <img class="thumbnail" src="{{ project.path }}" alt="img">
                 <h2 class="name">{{ project.name }}</h2>
+                <div class="tags">
+                    {% for tag in project.tags.split(', ') %}
+                    <span class="tag">{{ tag }}</span>
+                    {% endfor %}
+                </div>
                 <p class="description">{{ project.description }}</p>
                 <p class="date">{{ project.id|string + ' - ' + project.date }}</p>
             </div>
